@@ -1,37 +1,39 @@
 pipeline {
-  agent any
+    agent any
 
-  tools {
-    nodejs 'Node 18'  // Match the name configured in Global Tool Config
-  }
-
-  stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/your-username/your-repo.git'
-      }
+    tools {
+        nodejs 'Node 18' // Make sure this matches the name in Jenkins -> Global Tool Configuration
     }
 
-    stage('Install Dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Harshan-1-a7/ci-cd-team.git'
+            }
+        }
 
-    stage('Lint') {
-      steps {
-        sh 'npm run lint' // Optional: ensure you have a lint script
-      }
-    }
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
 
-    stage('Test') {
-      steps {
-        sh 'npm test'
-      }
-    }
+        stage('Lint') {
+            steps {
+                sh 'npm run lint' // Make sure package.json has a "lint" script
+            }
+        }
 
-    stage('Build') {
-      steps {
-        sh 'npm run build' // Optional: if using a build tool
-      }
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm run build' // Make sure package.json has a "build" script
+            }
+        }
+    }
 }
