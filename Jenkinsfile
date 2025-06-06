@@ -34,6 +34,4 @@ pipeline {
       steps {
         sh 'npm run build' // Optional: if using a build tool
       }
-    }
-  }
 }
