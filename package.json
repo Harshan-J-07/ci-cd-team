@@ -1,0 +1,24 @@
+{
+  "name": "ci-cd-team",
+  "version": "1.0.0",
+  "description": "This is a test to trigger Jenkins build.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshan-J-07/ci-cd-team.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harshan-J-07/ci-cd-team/issues"
+  },
+  "homepage": "https://github.com/Harshan-J-07/ci-cd-team#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

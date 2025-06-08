@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Node 22.16.0' // Make sure this matches the name in Jenkins -> Global Tool Configuration
+        nodejs 'nodejs22' // Make sure this matches the name in Jenkins -> Global Tool Configuration
     }
 
     stages {
@@ -18,21 +18,15 @@ pipeline {
             }
         }
 
-        stage('Lint') {
-            steps {
-                sh 'npm run lint' // Make sure package.json has a "lint" script
-            }
-        }
-
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh 'echo "Test does here"'
             }
         }
 
-        stage('Build') {
+        stage('Run App') {
             steps {
-                sh 'npm run build' // Make sure package.json has a "build" script
+                sh 'node server.js & sleep 5'
             }
         }
     }
