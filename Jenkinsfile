@@ -8,7 +8,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Harshan-1-a7/ci-cd-team.git'
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],   // change branch if needed
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/Harshan-1-a7/ci-cd-team.git',
+                        credentialsId: 'github-pat'
+                    ]]
+                ])
             }
         }
 
